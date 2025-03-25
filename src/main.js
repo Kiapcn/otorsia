@@ -3,17 +3,45 @@ console.log('Bienvenue sur otorsia');
 
 // Import des pages
 import { Code } from './pages/Code.js';
+import { Blog } from './pages/Blog.js';
 
 // Configuration des routes
-const routes = {
+export const routes = {
   '/': { title: 'Accueil', render: () => `<h1>Accueil</h1><p>Bienvenue sur otorsia</p>` },
-  '/blog': { title: 'Blog', render: () => `<h1>Blog</h1><p>Découvrez nos articles</p>` },
+  '/blog': { title: 'Blog', render: Blog },
   '/creation': { title: 'Création', render: () => `<h1>Création</h1><p>Espace de création</p>` },
   '/market': { title: 'Market', render: () => `<h1>Market</h1><p>Marketplace otorsia</p>` },
   '/code': { title: 'Code', render: Code },
   '/documentation': { title: 'Documentation', render: () => `<h1>Documentation</h1><p>Guide d'utilisation</p>` },
   '/forum': { title: 'Forum', render: () => `<h1>Forum</h1><p>Espace de discussion</p>` },
   '/ia-center': { title: 'IA Center', render: () => `<h1>IA Center</h1><p>Centre d'intelligence artificielle</p>` },
+  '/admin': { 
+    title: 'Admin', 
+    render: () => `
+      <div class="admin-dashboard">
+        <h1>Dashboard Admin</h1>
+        <div class="admin-grid">
+          <div class="admin-card">
+            <h2>Statistiques</h2>
+            <div id="statsChart"></div>
+          </div>
+          <div class="admin-card">
+            <h2>Base de données</h2>
+            <div id="dbStatus"></div>
+          </div>
+          <div class="admin-card">
+            <h2>Roadmap</h2>
+            <div id="roadmap">
+              <h3>En cours</h3>
+              <ul id="currentTasks"></ul>
+              <h3>À venir</h3>
+              <ul id="futureTasks"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    `
+  }
 };
 
 // Composants de layout
@@ -77,6 +105,8 @@ const handleNavigation = (event) => {
 // Initialisation de l'application
 const initApp = () => {
   const app = document.getElementById('app');
+  
+  // Injection du layout principal
   app.innerHTML = `
     ${Header()}
     ${Sidebar()}
