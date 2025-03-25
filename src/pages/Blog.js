@@ -414,9 +414,12 @@ export const Blog = () => {
   }, 0);
 
   return `
+    <div class="page-header">
+      <h1>Blog</h1>
+      <p>Découvrez nos derniers articles et partagez vos connaissances</p>
+    </div>
     <div class="blog">
       <div class="blog__header">
-        <h1>Blog</h1>
         <button class="btn btn--primary" onclick="document.getElementById('createArticleModal').classList.add('active')">
           Créer un article
         </button>

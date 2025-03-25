@@ -112,21 +112,34 @@ body {
 /* Main content */
 .main {
   grid-area: main;
-  padding: calc(var(--header-height) + 2rem) 2rem 2rem;
-  margin-left: var(--sidebar-width);
+  padding: var(--header-height) 0 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
 }
 
+/* Page header commun à toutes les pages */
 .page-header {
-  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  text-align: center;
+  padding: 0 2rem;
 }
 
 .page-header h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-dark);
 }
 
 .page-header p {
   color: #666;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* Footer */
@@ -190,8 +203,7 @@ body {
   }
   
   .main {
-    margin-left: 0;
-    width: 100%;
+    padding: var(--header-height) 1rem 2rem;
   }
   
   .header {
@@ -209,6 +221,18 @@ body {
   
   .mobile-overlay.active {
     pointer-events: auto;
+  }
+
+  .page-header {
+    padding: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .blog {
+    padding: 0 1rem;
   }
 }
 
@@ -228,25 +252,27 @@ body {
 
 /* Blog */
 .blog {
-  max-width: 1400px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 2rem;
 }
 
 .blog__header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin-bottom: 2rem;
 }
 
-/* Filtres */
 .blog__filters {
+  width: 100%;
   display: flex;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
-  padding: 1rem;
+  padding: 1.5rem;
   background: var(--color-white);
   border-radius: var(--border-radius);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -269,20 +295,22 @@ body {
 
 /* Articles */
 .blog__content {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
 }
 
 .article {
   width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
   background: var(--color-white);
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: var(--transition);
-  margin: 0 auto;
 }
 
 /* Suppression des styles left/right */
@@ -408,6 +436,7 @@ body {
   }
 
   .blog__filters {
+    padding: 1rem;
     flex-direction: column;
   }
 
